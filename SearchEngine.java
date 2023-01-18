@@ -11,10 +11,6 @@ class Handler2 implements URLHandler {
         if (url.getPath().equals("/")) {
             return ("try again");
         } else if (url.getPath().equals("/add")) {
-            return ("try again");
-            //return String.format("Number incremented!", num);
-        } else {
-            System.out.println("Path: " + url.getPath());
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
@@ -22,6 +18,10 @@ class Handler2 implements URLHandler {
                     return String.format("Added %s!", parameters[1]);
                 }
             }
+            return "null string";
+        } else {
+            System.out.println("Path: " + url.getPath());
+            
             if (url.getPath().contains("/search")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
